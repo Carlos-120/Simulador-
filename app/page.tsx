@@ -66,10 +66,11 @@ export default function Home() {
   useEffect(() => { if (seconds === 0 && screen === 'quiz') setScreen('result'); }, [seconds, screen]);
 
   const score = useMemo(() => quiz.reduce((total, item, index) => total + (answers[index] === item.answer ? 1 : 0), 0), [answers, quiz]);
-  const startQuiz = (area = selectedArea) => {
-    const pool = area === 'Todas las áreas' ? questions : questions.filter((item) => item.area === area);
+  const startQuiz = (area: unknown = selectedArea) => {
+    const chosenArea = typeof area === 'string' ? area : selectedArea;
+    const pool = chosenArea === 'Todas las áreas' ? questions : questions.filter((item) => item.area === chosenArea);
     const randomized = [...pool].sort(() => Math.random() - 0.5).slice(0, Math.min(10, pool.length));
-    setSelectedArea(area); setQuiz(randomized); setAnswers({}); setCurrent(0); setSeconds(Math.max(randomized.length * 120, 5 * 60)); setReview(false); setScreen('quiz');
+    setSelectedArea(chosenArea); setQuiz(randomized); setAnswers({}); setCurrent(0); setSeconds(Math.max(randomized.length * 120, 5 * 60)); setReview(false); setScreen('quiz');
   };
 
   useEffect(() => {
