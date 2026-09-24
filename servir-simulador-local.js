@@ -10,6 +10,7 @@ const pages = {
   "/Fichas-de-Repaso.html": "Fichas-de-Repaso.html",
   "/Cuaderno-de-Practica.html": "Cuaderno-de-Practica.html",
   "/Manual-de-Estudio-Completo.html": "Manual-de-Estudio-Completo.html",
+  "/contenido-profundo.js": "contenido-profundo.js",
 };
 
 http.createServer((request, response) => {
@@ -27,7 +28,7 @@ http.createServer((request, response) => {
       return;
     }
     response.writeHead(200, {
-      "Content-Type": "text/html; charset=utf-8",
+      "Content-Type": pageName.endsWith(".js") ? "application/javascript; charset=utf-8" : "text/html; charset=utf-8",
       "Cache-Control": "no-store",
     });
     response.end(content);
