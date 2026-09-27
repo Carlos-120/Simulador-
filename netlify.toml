@@ -1,0 +1,3 @@
+[build]
+  command = "echo 'Simulador estático: no requiere compilación'"
+  publish = "."
