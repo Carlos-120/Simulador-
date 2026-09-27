@@ -11,6 +11,8 @@ const pages = {
   "/Cuaderno-de-Practica.html": "Cuaderno-de-Practica.html",
   "/Manual-de-Estudio-Completo.html": "Manual-de-Estudio-Completo.html",
   "/contenido-profundo.js": "contenido-profundo.js",
+  "/Reactivos-Recibidos.html": "Reactivos-Recibidos.html",
+  "/reactivos-recibidos.js": "reactivos-recibidos.js",
 };
 
 http.createServer((request, response) => {
